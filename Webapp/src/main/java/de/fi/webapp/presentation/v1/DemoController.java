@@ -1,4 +1,4 @@
-package de.fi.webapp.presentation;
+package de.fi.webapp.presentation.v1;
 
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
