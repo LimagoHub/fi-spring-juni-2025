@@ -3,6 +3,7 @@ package de.fi.tag1_02simplespring.demo;
 import de.fi.tag1_02simplespring.translator.Translator;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
+import jakarta.inject.Named;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,10 +11,10 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@Component
+@Named
 //@Lazy
 //@Scope("prototype")
-@Scope("prototype")
+@Scope("singleton")
 public class Demo {
 
 

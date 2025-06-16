@@ -1,10 +1,15 @@
 package de.fi.tag1_02simplespring.math;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component
+@Qualifier("secure")
 public class CalculatorSecure implements Calculator {
 
     private final Calculator calculator;
 
-    public CalculatorSecure(final Calculator calculator) {
+    public CalculatorSecure(@Qualifier("logger") final Calculator calculator) {
         this.calculator = calculator;
     }
 
