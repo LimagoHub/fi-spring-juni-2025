@@ -9,12 +9,6 @@ import math.CalculatorSecure;
 public class Main {
     public static void main(String[] args) {
 
-        Runtime.getRuntime().addShutdownHook(new Thread() {
-            @Override
-            public void run() {
-                System.out.println();
-            }
-        });
 
 
         Calculator calculator = new CalculatorImpl();
