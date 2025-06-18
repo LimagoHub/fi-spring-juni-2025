@@ -1,0 +1,4 @@
+mail.host=smpt.irgendwo.de
+mail.username=Fritz
+mail.password=Geheim
+mail.protocol=pop3
