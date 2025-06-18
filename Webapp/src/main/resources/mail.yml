@@ -1,4 +1,5 @@
-mail.host=smpt.irgendwo.de
-mail.username=Fritz
-mail.password=Geheim
-mail.protocol=pop3
+mail:
+  host: smpt.irgendwo.de
+  username: Fritz
+  password: Geheim
+  protocol: pop3

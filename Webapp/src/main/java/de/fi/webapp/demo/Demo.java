@@ -1,6 +1,7 @@
 package de.fi.webapp.demo;
 
 
+import de.fi.webapp.mail.MailConnector;
 import de.fi.webapp.persistence.PersonenRepository;
 import de.fi.webapp.persistence.entity.PersonEntity;
 import jakarta.annotation.PostConstruct;
@@ -9,14 +10,15 @@ import org.springframework.stereotype.Component;
 
 import java.util.UUID;
 
-//@Component
+@Component
 @RequiredArgsConstructor
 public class Demo {
 
-    private final PersonenRepository personenRepository;
+
+    private final MailConnector mailConnector;
 
     @PostConstruct
     public void doIt() {
-        personenRepository.findTinies().forEach(System.out::println);
+        mailConnector.send();
     }
 }

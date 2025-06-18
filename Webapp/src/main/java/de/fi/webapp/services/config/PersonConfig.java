@@ -1,10 +1,6 @@
-package de.fi.webapp.services;
+package de.fi.webapp.services.config;
 
 
-import de.fi.webapp.persistence.PersonenRepository;
-import de.fi.webapp.services.inner.PersonenServiceImpl;
-import de.fi.webapp.services.mapper.PersonMapper;
-import de.fi.webapp.services.model.Person;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

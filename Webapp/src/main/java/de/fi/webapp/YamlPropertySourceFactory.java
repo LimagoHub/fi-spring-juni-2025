@@ -1,4 +1,4 @@
-package de.atruvia.webapp;
+package de.fi.webapp;
 
 import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
 import org.springframework.core.env.PropertiesPropertySource;

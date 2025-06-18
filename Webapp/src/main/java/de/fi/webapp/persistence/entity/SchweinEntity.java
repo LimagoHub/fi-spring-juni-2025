@@ -26,4 +26,6 @@ public class SchweinEntity {
     private String name;
     @Column(nullable = false)
     private int gewicht;
+
+
 }
