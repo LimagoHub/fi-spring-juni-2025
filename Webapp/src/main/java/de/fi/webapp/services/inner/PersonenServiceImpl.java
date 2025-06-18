@@ -1,5 +1,6 @@
 package de.fi.webapp.services.inner;
 
+import de.fi.webapp.aspects.Dozent;
 import de.fi.webapp.persistence.PersonenRepository;
 import de.fi.webapp.services.BlacklistService;
 import de.fi.webapp.services.model.Person;
@@ -17,7 +18,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-
+@Dozent
 @Service
 @RequiredArgsConstructor
 @Transactional(rollbackFor = PersoneServiceException.class, propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)

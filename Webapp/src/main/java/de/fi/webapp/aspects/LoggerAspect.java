@@ -12,14 +12,16 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class LoggerAspect {
 
-    @Before(value="execution(public * de.fi.webapp.presentation.v1.PersonenQueryController.*(..))")
+
+
+    @Before(value="PointCuts.dozentMethods()")
     public void logAdvice(final JoinPoint joinPoint) throws PersoneServiceException {
         log.warn(String.format(
                 "##################### Methode  %s wurde aufgerufen ########################"
                 , joinPoint.getSignature().getName()));
     }
 
-    @AfterReturning(value="execution(public * de.fi.webapp.presentation.v1.PersonenQueryController.*(..))", returning = "result")
+    @AfterReturning(value = "PointCuts.personenQueryControllerMethods()", returning = "result")
     public void logAdviceAfterReturning(final JoinPoint joinPoint, Object result) throws PersoneServiceException {
 
         log.warn(String.format("############################# Afterreturning: %s ######################", joinPoint.getSignature().getName()));
