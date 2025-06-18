@@ -19,33 +19,72 @@ import java.util.UUID;
 public class SchweineServiceImpl implements SchweineService {
 
 
-    private final SchweineRepository repository;
-    private final SchweinMapper mapper;
+    private final SchweineRepository schweinRepository;
+
+    private final SchweinMapper schweinMapper;
+
+
 
     @Override
-    public void speichern(final Schwein person) throws SchweineServiceException {
+    public void speichern(final Schwein schwein) throws SchweineServiceException {
+        try {
 
+            schweinRepository.save(schweinMapper.convert(schwein));
+
+        } catch (RuntimeException e) {
+            throw new SchweineServiceException("Es ist ein Fehler aufgetreten",e);
+        }
     }
+
+
 
     @Override
     public boolean aendern(final Schwein person) throws SchweineServiceException {
-        return false;
+        try {
+            if(! schweinRepository.existsById(person.getId())) {
+                return false;
+            }
+
+            schweinRepository.save(schweinMapper.convert(person));
+
+            return true;
+        } catch (RuntimeException e) {
+            throw new SchweineServiceException("Es ist ein Fehler aufgetreten",e);
+        }
     }
 
     @Override
     public boolean loesche(final UUID id) throws SchweineServiceException {
-        return false;
+        try {
+            if(! schweinRepository.existsById(id)) {
+                return false;
+            }
+
+            schweinRepository.deleteById(id);
+            return true;
+        } catch (RuntimeException e) {
+            throw new SchweineServiceException("Es ist ein Fehler aufgetreten",e);
+        }
     }
 
     @Override
     public Optional<Schwein> findeNachId(final UUID id) throws SchweineServiceException {
-        return Optional.empty();
+        try {
+            return schweinRepository.findById(id).map(schweinMapper::convert);
+        }catch (Exception e) {
+            throw new SchweineServiceException("Upps", e);
+        }
     }
 
     @Override
     public Iterable<Schwein> findeAlle() throws SchweineServiceException {
-        return null;
+        try {
+            return schweinMapper.convert(schweinRepository.findAll());
+        } catch (Exception e) {
+            throw new SchweineServiceException("Upps", e);
+        }
     }
+
 
     @Override
     public boolean fuettern(final UUID id) throws SchweineServiceException {
